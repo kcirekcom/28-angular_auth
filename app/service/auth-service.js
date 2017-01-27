@@ -31,4 +31,49 @@ function authService($q, $log, $http, $window) {
     if (token) return $q.resolve(token);
     return $q.reject(new Error('token not found'));
   };
+
+  service.logout = function() {
+    $log.debug('authService.logout()');
+
+    $window.localStorage.removeItem('token');
+    token = null;
+    return $q.resolve();
+  };
+
+  service.signup = function(user) {
+    $log.debug('authService.signup()');
+
+    let url = `${__API_URL__}/api/signup`;
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    };
+
+    return $http.post(url, user, config)
+    .then(res => {
+      $log.log('success', res.data);
+      return setToken(res.data);
+    })
+    .catch(err => {
+      $log.error('failure', err.message);
+      return $q.reject(err);
+    });
+  };
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
