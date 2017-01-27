@@ -1,0 +1,14 @@
+.signup {
+  width: 90%;
+  margin: $ctr;
+}
+
+.input-std {
+  font-size: 3vw;
+  width: $box-lg + 7%;
+  padding-left: $pad-reg;
+  min-height: 7vw;
+  margin-bottom: $gutter-sm + 4%;
+  border: 0.05vw solid $brand-tertiary;
+  border-radius: 5px;
+}
