@@ -36,5 +36,18 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  
+  service.deleteGallery = function(galleryID, galleryData) { // eslint-disable-line
+    $log.debug('galleryService.deleteGallery()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/gallery${galleryID}`; // eslint-disable-line
+      let config = { // eslint-disable-line
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+    });
+  };
 }
