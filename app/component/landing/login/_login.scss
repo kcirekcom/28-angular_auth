@@ -1,0 +1,7 @@
+.login-form {
+  @extend .signup-form;
+}
+
+.btn-std {
+  @extend .input-btn;
+}
