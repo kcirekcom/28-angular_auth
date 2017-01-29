@@ -1,0 +1,27 @@
+body {
+  font-family: helvetica;
+  font-size: 2vw;
+  background: $brand-primary;
+}
+
+button, input[type="submit"] {
+  min-height: 30px;
+  float: right;
+  width: $box-std - 10%;
+  background: $brand-secondary;
+  color: $white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 350ms all;
+
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+}
+
+img {
+  width: 10%;
+  float: left;
+}

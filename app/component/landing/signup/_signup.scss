@@ -1,0 +1,28 @@
+.signup-form {
+  width: 95%;
+  margin: $ctr;
+  text-align: center;
+}
+
+h2 {
+  margin-left: $gutter-std + 2%;
+  margin-bottom: $gutter-sm + 1%;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.input-std {
+  font-size: 3vw;
+  width: $box-lg + 7%;
+  padding-left: $pad-reg;
+  min-height: 7vw;
+  margin-bottom: $gutter-sm + 4%;
+  border: 0.05vw solid $brand-tertiary;
+  border-radius: 5px;
+}
+
+.input-btn {
+  margin-right: $gutter-std;
+  font-size: 2.5vw;
+  min-height: 7vw;
+}
