@@ -23,21 +23,21 @@ function NavbarController($log, $location, $rootScope, authService) {
         $location.url('/join#login');
       });
     }
+  };
 
+  this.checkPath();
+
+  $rootScope.$on('$locationChangeSuccess', () => {
     this.checkPath();
+  });
 
-    $rootScope.$on('$locationChangeSuccess', () => {
-      this.checkPath();
+  this.logout = function() {
+    $log.log('navbarCtrl.logout()');
+
+    this.hideButtons = true;
+    authService.logout()
+    .then(() => {
+      $location.url('/');
     });
-
-    this.logout = function() {
-      $log.log('navbarCtrl.logout()');
-
-      this.hideButtons = true;
-      authService.logout()
-      .then(() => {
-        $location.url('/');
-      });
-    };
   };
 }
