@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['q', '$log', '$http', 'authService', galleryService];
+module.exports = ['$q', '$log', '$http', 'authService', galleryService];
 
 function galleryService($q, $log, $http, authService) {
   $log.debug('galleryService');
@@ -76,5 +76,5 @@ function galleryService($q, $log, $http, authService) {
       return $q.reject(err);
     });
   };
-  return service;  
+  return service;
 }
