@@ -36,8 +36,8 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.deleteGallery = function(galleryID, galleryData) { // eslint-disable-line
-    $log.debug('galleryService.deleteGallery()');
+  service.deleteGalleries = function(galleryID, galleryData) { // eslint-disable-line
+    $log.debug('galleryService.deleteGalleries()');
 
     return authService.getToken()
     .then(token => {
