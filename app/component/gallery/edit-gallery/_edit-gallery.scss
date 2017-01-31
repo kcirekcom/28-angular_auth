@@ -1,0 +1,27 @@
+.edit {
+  margin: $gutter-sm 0;
+
+  .edit-boxes {
+    @extend .current-item;
+
+    .name-input {
+      @extend .input-std;
+      width: $box-lg + 2.5%;
+      background: $brand-primary;
+      border: 0.05vw solid $brand-secondary;
+      min-height: 3vw;
+      margin-bottom: 0;
+    }
+
+    .desc-input {
+      @extend .name-input;
+      width: $box-lg - 8%;
+    }
+  }
+
+  button {
+    width: $box-sm - 0.85%;
+    padding: $pad-reg - 1%;
+    margin-right: $gutter-std + 2%;
+  }
+}

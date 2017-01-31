@@ -4,23 +4,25 @@
     ng-submit="editGalleryCtrl.updateGallery()"
     novalidate>
 
-    <fieldset>
-      <span class="item-label">name:</span>
-      <input
+    <div class="edit-boxes">
+      <fieldset>
+        <span class="item-label">name:</span>
+        <input
         type="text"
         name="name"
-        class="input-std"
+        class="name-input"
         ng-model="editGalleryCtrl.gallery.name">
-    </fieldset>
+      </fieldset>
 
-    <fieldset>
-      <span class="item-label">description:</span>
-      <input
-      type="text"
-      name="desc"
-      class="input-std"
-      ng-model="editGalleryCtrl.gallery.desc">
-    </fieldset>
+      <fieldset>
+        <span class="item-label">description:</span>
+        <input
+        type="text"
+        name="desc"
+        class="desc-input"
+        ng-model="editGalleryCtrl.gallery.desc">
+      </fieldset>
+    </div>
 
     <button class="btn-std">update</button>
   </form>

@@ -9,10 +9,12 @@
       <span class="item-label">description:</span>
       <span>{{galleryItemCtrl.gallery.desc}}</span>
     </div>
+  </div>
 
-    <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery='galleryItemCtrl.gallery'></edit-gallery>
+  <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery='galleryItemCtrl.gallery'></edit-gallery>
 
-    <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span>
-    <span ng-click="galleryItemCtrl.deleteGallery()">delete</span>
+  <div class="temp-div" ng-if="!galleryItemCtrl.showEditGallery">
+    <span class="span-btn" ng-click="galleryItemCtrl.deleteGallery()">delete</span>
+    <span class="span-btn" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span>
   </div>
 </li>
