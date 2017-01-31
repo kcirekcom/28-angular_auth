@@ -1,0 +1,8 @@
+.gallery-form {
+  @extend .signup-form;
+}
+
+.add-gallery-btn {
+  @extend .input-btn;
+  margin-bottom: $gutter-lg;
+}

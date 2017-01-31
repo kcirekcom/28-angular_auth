@@ -1,0 +1,29 @@
+.navbar {
+  margin: 0;
+  min-height: 14vw;
+}
+
+h1 {
+  font-size: 5vw;
+  float: left;
+  margin-top: $gutter-sm + 2%;
+  margin-left: $gutter-sm;
+}
+
+.signout-btn {
+  width: $box-sm;
+  background: $brand-primary;
+  color: $brand-secondary;
+  border-radius: 20px;
+  min-height: 5vw;
+  font-size: 2.5vw;
+  margin-top: $gutter-sm + 2%;
+  margin-right: $gutter-std + 2%;
+}
+
+.header-img {
+  width: 8vw;
+  float: left;
+  margin-left: $gutter-std + 1.5%;
+  margin-top: $gutter-sm;
+}

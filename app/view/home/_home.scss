@@ -1,1 +1,23 @@
-@import '../../scss/theme/vars';
+ul {
+  clear: both;
+}
+
+li {
+  display: block;
+  width: $box-lg;
+  margin: $gutter-sm auto;
+  text-align: left;
+  background: $brand-tertiary;
+  padding: $pad-reg;
+  border-radius: 5px;
+  line-height: 4vw;
+}
+
+.gallery-info {
+  font-size: 3vw;
+
+  &:nth-child(odd) {
+    font-weight: bold;
+    margin-right: $pad-reg - 1.5%;
+  }
+}

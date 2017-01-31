@@ -16,7 +16,7 @@ h2 {
   width: $box-lg + 7%;
   padding-left: $pad-reg;
   min-height: 7vw;
-  margin-bottom: $gutter-sm + 4%;
+  margin-bottom: $gutter-sm + 2%;
   border: 0.05vw solid $brand-tertiary;
   border-radius: 5px;
 }
@@ -24,5 +24,4 @@ h2 {
 .input-btn {
   margin-right: $gutter-std;
   font-size: 2.5vw;
-  min-height: 7vw;
 }
