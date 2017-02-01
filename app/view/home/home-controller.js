@@ -10,7 +10,7 @@ function HomeController($log, $rootScope, galleryService) {
   this.fetchGalleries = function() {
     galleryService.fetchGalleries()
     .then(galleries => {
-      this.galleries = galleries;
+      this.galleries = galleries.reverse();
     });
   };
 

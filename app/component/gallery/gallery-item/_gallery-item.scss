@@ -1,0 +1,47 @@
+.gallery-item {
+  margin-bottom: $gutter-lg + 2%;
+
+  .current-item {
+    width: $box-lg;
+    margin: $gutter-sm auto;
+    text-align: left;
+    background: $brand-tertiary;
+    padding: $pad-reg;
+    border-radius: 5px;
+    line-height: 5.5vw;
+
+
+    span {
+      font-size: 3vw;
+
+      &:nth-child(odd) {
+        font-weight: bold;
+        margin-right: $pad-reg - 1.5%;
+      }
+    }
+  }
+
+  .temp-div {
+    margin-right: $gutter-std - 0.25%;
+
+    .span-btn {
+      @extend button;
+      width: $box-sm;
+      text-align: center;
+      min-height: 3vw;
+      font-size: 2.5vw;
+      line-height: 7.25vw;
+      margin-right: $gutter-sm;
+
+      &:nth-child(odd) {
+        background: $brand-secondary * 2.4;
+        color: $black;
+
+        &:hover {
+          background: $black;
+          color: $white;
+        }
+      }
+    }
+  }
+}

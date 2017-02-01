@@ -4,6 +4,13 @@ body {
   background: $brand-primary;
 }
 
+h2 {
+  margin-left: $gutter-std + 2%;
+  margin-bottom: $gutter-sm + 1%;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
 button, input[type="submit"] {
   min-height: 7vw;
   float: right;
