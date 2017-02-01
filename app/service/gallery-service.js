@@ -140,5 +140,6 @@ function galleryService($q, $log, $http, authService) {
       return $q.reject(err);
     });
   };
+  
   return service;
 }
