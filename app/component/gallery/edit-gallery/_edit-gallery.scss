@@ -20,8 +20,8 @@
   }
 
   button {
-    width: $box-sm - 0.85%;
-    padding: $pad-reg - 0.85%;
-    margin-right: $gutter-std + 2%;
+    width: $box-sm - 0.95%;
+    min-height: 7.25vw;
+    margin-right: $gutter-std + 2.1%;
   }
 }
