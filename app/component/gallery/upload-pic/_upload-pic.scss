@@ -1,0 +1,23 @@
+.upload-form {
+  @extend .signup-form;
+
+  .grab-img {
+    cursor: pointer;
+    text-decoration: underline;
+    float: left;
+    margin-left: 40vw;
+    margin-top: 2.25vw;
+  }
+
+  .input-std {
+    background: $brand-secondary * 2.25;
+  }
+
+  button {
+    margin-bottom: $gutter-sm + 2%;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $white;
+  }
+}

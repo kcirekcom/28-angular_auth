@@ -12,6 +12,10 @@ h2 {
   font-weight: bold;
 }
 
+h3 {
+  @extend h2;
+}
+
 button, input[type="submit"] {
   min-height: 7vw;
   float: right;
