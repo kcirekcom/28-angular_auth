@@ -12,6 +12,7 @@ function picService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
     .then(token => {
+      console.log(galleryData);
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`; //eslint-disable-line
       let headers = {
         Authorization: `Bearer ${token}`,
@@ -43,19 +44,20 @@ function picService($q, $log, $http, Upload, authService) {
     $log.debug('picService.deleteGalleryPic');
 
     return authService.getToken()
-    .then(token => {
+    .then( token => {
+      console.log(galleryData);
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${picData._id}`; //eslint-disable-line
       let config = {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       };
-
       return $http.delete(url, config);
     })
     .then(() => {
-      for (let i = 0; i < galleryData.pics.length; i++) {
-        if (galleryData.pics[i]._id === picData._id) {
+      for(let i = 0; i < galleryData.pics.length; i++) {
+        let current = galleryData.pics[i];
+        if(current._id === picData._id) {
           galleryData.pics.splice(i, 1);
           break;
         }

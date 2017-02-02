@@ -3,7 +3,7 @@
 module.exports = ['$q', '$log', '$http', 'authService', galleryService];
 
 function galleryService($q, $log, $http, authService) {
-  $log.debug('galleryService');
+  $log.debug('galleryService()');
 
   let service = {};
   service.galleries = [];
@@ -13,7 +13,7 @@ function galleryService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/gallery`; // eslint-disable-line
+      let url = `${__API_URL__}/api/gallery`; //eslint-disable-line
       let config = {
         headers: {
           Accept: 'application/json',
@@ -21,11 +21,11 @@ function galleryService($q, $log, $http, authService) {
           Authorization: `Bearer ${token}`
         }
       };
+
       return $http.post(url, gallery, config);
     })
     .then(res => {
       $log.log('gallery created');
-
       let gallery = res.data;
       service.galleries.unshift(gallery);
       return gallery;
@@ -36,13 +36,11 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.deleteGalleries = function(galleryID, galleryData) { // eslint-disable-line
-    $log.debug('galleryService.deleteGalleries()');
-
+  service.deleteGalleries = function(galleryID, galleryData) { //eslint-disable-line
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/gallery/${galleryID}`; // eslint-disable-line
-      let config = { // eslint-disable-line
+      let url = `${__API_URL__}/api/gallery/${galleryID}`; //eslint-disable-line
+      let config = { //eslint-disable-line
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${token}`
@@ -56,7 +54,7 @@ function galleryService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/gallery`; // eslint-disable-line
+      let url = `${__API_URL__}/api/gallery`; //eslint-disable-line
       let config = {
         headers: {
           Accept: 'application/json',
@@ -82,7 +80,7 @@ function galleryService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/gallery/${galleryID}`; // eslint-disable-line
+      let url = `${__API_URL__}/api/gallery/${galleryID}`; //eslint-disable-line
       let config = {
         headers: {
           Accept: 'application/json',
@@ -96,7 +94,6 @@ function galleryService($q, $log, $http, authService) {
     .then(res => {
       for (let i = 0; i < service.galleries.length; i++) {
         let current = service.galleries[i];
-
         if (current._id === galleryID) {
           service.galleries[i] = res.data;
           break;
@@ -112,11 +109,11 @@ function galleryService($q, $log, $http, authService) {
   };
 
   service.deleteGallery = function(galleryID) {
-    $log.debug('galleryService.deleteGallery()');
+    $log.debug('galleryService.updateGallery()');
 
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/gallery/${galleryID}`; // eslint-disable-line
+      let url = `${__API_URL__}/api/gallery/${galleryID}`; //eslint-disable-line
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
@@ -133,13 +130,12 @@ function galleryService($q, $log, $http, authService) {
           break;
         }
       }
-      $log.log('gallery deleted');
     })
     .catch(err => {
       $log.error(err.message);
       return $q.reject(err);
     });
   };
-  
+
   return service;
 }

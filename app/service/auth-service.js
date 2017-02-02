@@ -2,13 +2,13 @@
 
 module.exports = ['$q', '$log', '$http', '$window', authService];
 
-function authService($q, $log, $http, $window) {
+function authService($q, $log, $http, $window){
   $log.debug('authService');
 
   let service = {};
   let token = null;
 
-  function setToken(_token) {
+  function setToken(_token){
     $log.debug('authService.setToken()');
 
     if (! _token) {
@@ -20,9 +20,8 @@ function authService($q, $log, $http, $window) {
     return $q.resolve(token);
   }
 
-  service.getToken = function() {
-    $log.debug('authService.getToken()');
-
+  service.getToken = function(){
+    $log.debug('authService.getToken');
     if (token) {
       return $q.resolve(token);
     }
@@ -32,7 +31,7 @@ function authService($q, $log, $http, $window) {
     return $q.reject(new Error('token not found'));
   };
 
-  service.logout = function() {
+  service.logout = function(){
     $log.debug('authService.logout()');
 
     $window.localStorage.removeItem('token');
@@ -47,7 +46,7 @@ function authService($q, $log, $http, $window) {
     let config = {
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
       }
     };
 
@@ -62,7 +61,7 @@ function authService($q, $log, $http, $window) {
     });
   };
 
-  service.login = function(user) {
+  service.login = function(user){
     $log.debug('authService.login()');
 
     let url = `${__API_URL__}/api/login`;
@@ -70,7 +69,7 @@ function authService($q, $log, $http, $window) {
     let config = {
       headers: {
         Accept: 'application/json',
-        Authorization: `Basic ${base64}`
+        Authorization: `Basic ${base64}`,
       }
     };
 
