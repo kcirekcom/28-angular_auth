@@ -24,4 +24,31 @@ describe('Auth Service', function() {
       this.$rootScope.$apply();
     });
   });
+
+  describe('authService.login()', () => {
+    it('should log a user into the app', () => {
+      let testUser = {
+        username: 'testuser',
+        password: '1234abcd'
+      };
+
+      let base64 = this.$window.btoa(`${testUser.username}:${testUser.password}`);
+
+      let headers = {
+        Accept: 'application/json',
+        Authorization: `Basic ${base64}`
+      };
+
+      this.$httpBackend.expectGET(`${__API_URL__}/api/login`, headers) //eslint-disable-line
+      .respond(200, 'test token');
+
+      this.authService.login(testUser)
+      .then(token => {
+        expect(token).toEqual('test token');
+      });
+
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    });
+  });
 });
