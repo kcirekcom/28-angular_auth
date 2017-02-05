@@ -58,12 +58,10 @@ describe('Gallery Service', function() {
   describe('galleryService.updateGallery()', () => {
     it('should update a gallery', () => {
       let galleryID = 'testid';
-
       let newGalleryData = {
         name: 'new gallery',
         desc: 'new description'
       };
-
       let headers = {
         'Content-Type': 'application/json',
         Accept: 'application/json',
