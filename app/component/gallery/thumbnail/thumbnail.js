@@ -12,7 +12,6 @@ module.exports = {
 
 function ThumbnailController($log, picService) {
   $log.debug('ThumbnailController');
-  console.log('print gallery', this.gallery);
 
   this.deletePic = function() {
     $log.debug('thumbnailCtrl.deletePic()');

@@ -12,7 +12,6 @@ function picService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
     .then(token => {
-      console.log(galleryData);
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`; //eslint-disable-line
       let headers = {
         Authorization: `Bearer ${token}`,
@@ -45,7 +44,6 @@ function picService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
     .then( token => {
-      console.log(galleryData);
       let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${picData._id}`; //eslint-disable-line
       let config = {
         headers: {
