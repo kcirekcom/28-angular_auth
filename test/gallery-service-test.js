@@ -14,7 +14,7 @@ describe('Gallery Service', function() {
     it('should create a new gallery', () => {
       let galleryData = {
         name: 'example gallery',
-        desc: 'example desc'
+        desc: 'example description'
       };
 
       let headers = {
@@ -50,6 +50,30 @@ describe('Gallery Service', function() {
       .respond(204);
 
       this.galleryService.deleteGallery(galleryID);
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    });
+  });
+
+  describe('galleryService.updateGallery()', () => {
+    it('should update a gallery', () => {
+      let galleryID = 'testid';
+
+      let newGalleryData = {
+        name: 'new gallery',
+        desc: 'new description'
+      };
+
+      let headers = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'Bearer test token'
+      };
+
+      this.$httpBackend.expectPUT(`${__API_URL__}/api/gallery/testid`, newGalleryData, headers) //eslint-disable-line
+      .respond(200);
+
+      this.galleryService.updateGallery(galleryID, newGalleryData);
       this.$httpBackend.flush();
       this.$rootScope.$apply();
     });
