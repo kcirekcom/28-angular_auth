@@ -1,0 +1,16 @@
+.thumbnail {
+
+  .thumbnail-rendered {
+    background: $brand-tertiary;
+    width: $box-lg + 6%;
+    margin: $gutter-std auto;
+    text-align: center;
+    padding: $pad-reg 0;
+    overflow: auto;
+  }
+
+  .btn-std {
+    width: $box-sm + 8.5%;
+    margin-right: $gutter-std + 2%;
+  }
+}
