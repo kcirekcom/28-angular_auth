@@ -5,7 +5,7 @@ module.exports = function() {
     let fuzzyRegex = generateFuzzyRegex(searchTerm);
 
     return galleries.filter(gallery => {
-      fuzzyRegex.test(gallery.name.toUpperCase());
+      return fuzzyRegex.test(gallery.name.toUpperCase() && gallery.desc.toUpperCase());
     });
   };
 };
