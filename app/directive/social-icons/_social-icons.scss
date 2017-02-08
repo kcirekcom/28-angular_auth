@@ -4,4 +4,24 @@
     margin: 0 auto;
     margin-bottom: $gutter-sm;
   }
+
+  ul {
+    .social-icon {
+      display: inline-block;
+      margin: 0 $gutter-sm;
+
+      background: url('../../assets/social-icons/social-icons.png') no-repeat 0 0;
+      width: 24px;
+      height: 24px;
+      background-position: -24px;
+
+      &:nth-child(2) {
+        background-position: 0;
+      }
+
+      &:last-child {
+        background-position: -48px 0px;
+      }
+    }
+  }
 }

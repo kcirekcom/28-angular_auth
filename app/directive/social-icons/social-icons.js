@@ -14,5 +14,5 @@ module.exports = function() {
 };
 
 function SocialIconsController() {
-  this.icons = ['fb', 'twitter', 'instagram'];
+  this.icons = ['twitter', 'facebook', 'instagram'];
 }
