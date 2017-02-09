@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "engines": {"node: 4.4.7"},
     "start": "node server.js",
     "heroku-postbuild": "webpack -p --progress",
     "build": "./node_modules/webpack/bin/webpack.js",
