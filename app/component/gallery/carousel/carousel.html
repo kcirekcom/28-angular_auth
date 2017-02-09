@@ -1,0 +1,7 @@
+<section class="carousel">
+  <div uib-carousel active="carouselCtrl.active" interval="carouselCtrl.setInterval" no-wrap="false">
+    <div uib-slide ng-repeat="slide in carouselCtrl.slides track by slide.id" index="slide.id">
+      <img ng-src="{{slide.image}}"/>
+    </div>
+  </div>
+</section>
