@@ -12,6 +12,7 @@ function HomeController($log, $rootScope, galleryService) {
     .then(galleries => {
       this.galleries = galleries.reverse();
       this.currentGallery = galleries[0];
+      console.log(this.galleries);
     });
   };
 

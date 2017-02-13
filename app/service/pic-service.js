@@ -7,8 +7,42 @@ function picService($q, $log, $http, Upload, authService) {
 
   let service = {};
 
-  service.uploadGalleryPic = function(galleryData, picData) {
+  // service.uploadGalleryPic = function(galleryData, picData) {
+  //   $log.debug('uploadGalleryPic');
+  //   console.log(picData);
+  //
+  //   return authService.getToken()
+  //   .then(token => {
+  //     let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`; //eslint-disable-line
+  //     let headers = {
+  //       Authorization: `Bearer ${token}`,
+  //       Accept: 'application/json'
+  //     };
+  //
+  //     return Upload.upload({
+  //       url,
+  //       headers,
+  //       method: 'POST',
+  //       data: {
+  //         name: picData.name,
+  //         desc: picData.desc,
+  //         file: picData.file
+  //       }
+  //     });
+  //   })
+  //   .then(res => {
+  //     galleryData.pics.unshift(res.data);
+  //     return res.data;
+  //   })
+  //   .catch(err => {
+  //     $log.error(err.message);
+  //     return $q.reject(err);
+  //   });
+  // };
+
+  service.uploadGalleryPic = function(galleryData, files) {
     $log.debug('uploadGalleryPic');
+    console.log(files);
 
     return authService.getToken()
     .then(token => {
@@ -18,29 +52,36 @@ function picService($q, $log, $http, Upload, authService) {
         Accept: 'application/json'
       };
 
-      return Upload.upload({
-        url,
-        headers,
-        method: 'POST',
-        data: {
-          name: picData.name,
-          desc: picData.desc,
-          file: picData.file
+      if (files && files.length) {
+        for (var i = 0; i < files.length; i++) {
+
+          return Upload.upload({
+            url,
+            headers,
+            method: 'POST',
+            data: {
+              file: files[i]
+            }
+          })
+          .then(res => {
+            galleryData.pics.unshift(res.data);
+            return res.data;
+          })
+          .then(evt => {
+            this.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+          })
+          .catch(err => {
+            $log.error(err.message);
+            return $q.reject(err);
+          });
         }
-      });
-    })
-    .then(res => {
-      galleryData.pics.unshift(res.data);
-      return res.data;
-    })
-    .catch(err => {
-      $log.error(err.message);
-      return $q.reject(err);
+      }
     });
   };
 
   service.deleteGalleryPic = function(galleryData, picData) {
     $log.debug('picService.deleteGalleryPic');
+    console.log(picData);
 
     return authService.getToken()
     .then( token => {
